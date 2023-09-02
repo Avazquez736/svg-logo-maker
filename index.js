@@ -2,7 +2,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const {Circle, Sqare, Triangle} = require("./lib/shapes");
 
- const userPrompt = [
+
+// 
+const userPrompt = [
      {
          type: "input",
          name: "text",
@@ -25,3 +27,15 @@ const {Circle, Sqare, Triangle} = require("./lib/shapes");
          choices: ["Circle", "Square", "Triangle"],
      },
  ];
+
+ // Function to write data to file
+ function writeToFile(fileName, data) {
+	console.log("Writing [" + data + "] to file [" + fileName + "]")
+    filesystem.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Congratulations, you have Generated a logo.svg!");
+    });
+}
+
